@@ -2,6 +2,10 @@ require 'spec_helper'
 
 describe "Static Pages" do
 
+  let :title_start do
+    "railstutorial.org Sample App | "
+  end
+
   describe "Home page" do
 
     it "should have the h1 'Sample App'" do
@@ -11,7 +15,7 @@ describe "Static Pages" do
 
     it "should have the title 'Home'" do
       visit '/static_pages/home'
-      page.should have_selector('title', :text => "railstutorial.org Sample App | Home")
+      page.should have_selector('title', :text => "#{title_start}Home")
     end
   end
 
@@ -24,7 +28,7 @@ describe "Static Pages" do
 
     it "should have the title 'Help'" do
       visit '/static_pages/help'
-      page.should have_selector('title', :text => "railstutorial.org Sample App | Help")
+      page.should have_selector('title', :text => "#{title_start}Help")
     end
   end
   
@@ -37,7 +41,20 @@ describe "Static Pages" do
 
     it "should have the title 'About Us'" do
       visit '/static_pages/about'
-      page.should have_selector('title', :text => "railstutorial.org Sample App | About Us")
+      page.should have_selector('title', :text => "#{title_start}About Us")
+    end
+  end
+
+  describe "Contact page" do
+
+    it "should have the h1 'Contact Us'" do
+      visit '/static_pages/contact'
+      page.should have_selector('h1', :text => 'Contact Us')
+    end
+
+    it "should have the title 'Contact Us'" do
+      visit '/static_pages/contact'
+      page.should have_selector('title', :text => "#{title_start}Contact Us")
     end
   end
 
