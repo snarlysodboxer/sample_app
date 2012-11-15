@@ -16,7 +16,7 @@ development:
 test:
   adapter: postgresql
   encoding: UTF8
-  database: sample_app_dev
+  database: sample_app_test
   pool: 5
   username: revacuate
 
